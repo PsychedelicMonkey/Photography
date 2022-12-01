@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Dancing Script';
+  src: url('../fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('../fonts/Lora/Lora-VariableFont_wght.ttf');
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -12,3 +22,23 @@ body {
 a {
   color: inherit;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Dancing Script', cursive;
+}
+
+p,
+a {
+  font-size: 18px;
+  font-family: 'Lora', serif;
+}
+
+.main-content {
+  padding-top: 40px;
+}
+
+@import 'navbar';

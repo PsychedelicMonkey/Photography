@@ -10,12 +10,9 @@
 <body>
     <main>
         <header>
-            <nav>
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-            </nav>
+            <x-navbar />
         </header>
-        <article>
+        <article class="main-content">
             {{ $slot }}
         </article>
     </main>
