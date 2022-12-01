@@ -1,6 +1,6 @@
 <nav class="navbar">
     <button class="navbar-collapse" id="navbar-collapse">
-        <span class="collapse-text">Collapse</span>
+        <span class="collapse-text"></span>
     </button>
 
     <div class="navbar-links">
