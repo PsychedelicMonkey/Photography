@@ -1,3 +1,5 @@
+@import 'global';
+
 @font-face {
   font-family: 'Dancing Script';
   src: url('../fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf');
@@ -38,7 +40,7 @@ a {
 }
 
 .main-content {
-  padding-top: 40px;
+  padding-top: $navbarHeight;
 }
 
 @import 'navbar';
