@@ -5,8 +5,8 @@
 
     <div class="navbar-links">
         <a href="/">Home</a>
-        <a href="#">Gallery</a>
-        <a href="#">Posts</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/posts">Posts</a>
         <a href="/about">About</a>
         <a href="#">Contact</a>
     </div>
