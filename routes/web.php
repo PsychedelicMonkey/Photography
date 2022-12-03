@@ -24,6 +24,8 @@ Route::get('/about', function () {
 });
 
 Route::get('/gallery', [PhotoController::class, 'index']);
+Route::post('/gallery', [PhotoController::class, 'store']);
+Route::get('/gallery/create', [PhotoController::class, 'create']);
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::post('/posts', [PostController::class, 'store']);

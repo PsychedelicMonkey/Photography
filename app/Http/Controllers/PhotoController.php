@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Photo;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PhotoController extends Controller
@@ -26,7 +27,9 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+        $posts = Post::orderBy('created_at', 'desc')->get();
+
+        return view('photo.create', ['posts' => $posts]);
     }
 
     /**
@@ -37,7 +40,25 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'image' => ['required', 'image'],
+            'caption' => ['max:255'],
+            'post' => ['required'],
+        ]);
+
+        $img = $request->file('image')->store('img', 'public');
+
+        $size = getimagesize($request->file('image'));
+
+        Photo::create([
+            'image' => $img,
+            'caption' => $data['caption'],
+            'post_id' => $data['post'],
+            'width' => $size[0],
+            'height' => $size[1],
+        ]);
+
+        return redirect('/gallery');
     }
 
     /**
