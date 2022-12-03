@@ -1,7 +1,7 @@
 @props(['items', 'type'])
 
 @if (count($items) > 0)
-  <div class="grid">
+  <div class="grid @if ($type === 'photo')photo-grid @endif">
     <div class="grid-sizer"></div>
 
     @if ($type === 'photo')
