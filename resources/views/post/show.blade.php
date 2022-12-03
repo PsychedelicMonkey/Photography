@@ -5,6 +5,6 @@
   
     <div>{{ $post->body }}</div>
 
-    <x-grid :items="$post->photos" type="photo" />
+    <x-grid :items="$post->photos()->paginate(20)" type="photo" />
   </div>
 </x-layout>
