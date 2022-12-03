@@ -1,4 +1,5 @@
 import './bootstrap';
+import './grid';
 
 const collapse = document.getElementById('navbar-collapse');
 const navbarLinks = document.querySelector('.navbar-links');

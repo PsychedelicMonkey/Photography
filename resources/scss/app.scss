@@ -43,4 +43,10 @@ a {
   padding-top: $navbarHeight;
 }
 
+.container {
+  max-width: 1250px;
+  margin: auto;
+}
+
 @import 'navbar';
+@import 'grid';

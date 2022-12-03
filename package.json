@@ -11,5 +11,9 @@
         "postcss": "^8.1.14",
         "sass": "^1.56.1",
         "vite": "^3.0.0"
+    },
+    "dependencies": {
+        "imagesloaded": "^5.0.0",
+        "masonry-layout": "^4.2.2"
     }
 }

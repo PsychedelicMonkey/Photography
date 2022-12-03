@@ -1,0 +1,24 @@
+.grid {
+  margin-left: 22px;
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .grid-sizer,
+  .grid-item {
+    width: calc(33.333% - 22px);
+  }
+
+  .grid-item {
+    float: left;
+    margin-bottom: 22px;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+}
