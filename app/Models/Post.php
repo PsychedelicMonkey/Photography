@@ -12,14 +12,14 @@ use Spatie\Tags\HasTags;
 class Post extends Model implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\PostFactory> */
-    use HasFactory, InteractsWithMedia, HasTags;
+    use HasFactory, HasTags, InteractsWithMedia;
 
     protected $guarded = [];
 
-    protected function casts():array
+    protected function casts(): array
     {
         return [
-            'published_at' => 'datetime'
+            'published_at' => 'datetime',
         ];
     }
 

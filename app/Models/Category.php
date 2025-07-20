@@ -13,10 +13,10 @@ class Category extends Model
 
     protected $guarded = [];
 
-    protected function casts():array
+    protected function casts(): array
     {
         return [
-            'is_visible' => 'boolean'
+            'is_visible' => 'boolean',
         ];
     }
 

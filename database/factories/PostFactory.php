@@ -18,12 +18,12 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' =>$title= $this->faker->unique()->sentence(),
+            'title' => $title = $this->faker->unique()->sentence(),
             'slug' => Str::slug($title),
             'body' => $this->faker->realText(2000),
-            'published_at' =>$this->faker->dateTimeBetween('-1 year', '+1 month'),
-            'created_at' =>$this->faker->dateTimeBetween('-1 year', '-6 month'),
-            'updated_at' =>$this->faker->dateTimeBetween('-5 month'),
+            'published_at' => $this->faker->dateTimeBetween('-1 year', '+1 month'),
+            'created_at' => $this->faker->dateTimeBetween('-1 year', '-6 month'),
+            'updated_at' => $this->faker->dateTimeBetween('-5 month'),
         ];
     }
 }
