@@ -8,7 +8,8 @@
 
     <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
-    @vite(['resources/js/app.js', "resources/js/pages/{$page['component']}.vue"])
+    @routes
+    @vite(['resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])
     @inertiaHead
 </head>
 <body class="font-sans antialiased">
