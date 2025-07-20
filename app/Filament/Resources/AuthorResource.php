@@ -14,18 +14,31 @@ class AuthorResource extends Resource
 {
     protected static ?string $model = Author::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $slug = 'blog/authors';
+
+    protected static ?string $recordTitleAttribute = 'name';
+
+    protected static ?string $navigationGroup = 'Blog';
+
+    protected static ?string $navigationIcon = 'heroicon-o-users';
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->maxLength(255)
                     ->required(),
+
                 Forms\Components\TextInput::make('email')
                     ->email()
-                    ->required(),
-                Forms\Components\Textarea::make('bio')
+                    ->maxLength(255)
+                    ->required()
+                    ->unique(Author::class, 'email', ignoreRecord: true),
+
+                Forms\Components\RichEditor::make('bio')
                     ->columnSpanFull(),
             ]);
     }
@@ -35,13 +48,18 @@ class AuthorResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable(isIndividual: true)
+                    ->sortable(),
+
                 Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
+                    ->searchable(isIndividual: true, isGlobal: false)
+                    ->sortable(),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
