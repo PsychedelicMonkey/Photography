@@ -4,5 +4,9 @@ import { Head } from '@inertiajs/vue3';
 
 <template>
     <Head title="Home Page" />
-    <h1>Home Page</h1>
+    <nav>
+        <a :href="route('home')">Home</a>
+    </nav>
+
+    <h1 class="text-3xl font-semibold">Home Page</h1>
 </template>
