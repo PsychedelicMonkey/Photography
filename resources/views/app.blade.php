@@ -8,7 +8,7 @@
 
     <title inertia>{{ config('app.name') }}</title>
 
-    @vite(['resources/js/app.js'])
+    @vite(['resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])
     @inertiaHead
 </head>
 <body>
