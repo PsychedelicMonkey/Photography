@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import AppLayout from '@/layouts/AppLayout.vue';
 import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
     <Head title="Home Page" />
-    <nav>
-        <a :href="route('home')">Home</a>
-    </nav>
 
-    <h1 class="text-3xl font-semibold">Home Page</h1>
+    <AppLayout>
+        <h1 class="text-3xl font-semibold">Home Page</h1>
+    </AppLayout>
 </template>
