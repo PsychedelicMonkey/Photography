@@ -25,7 +25,7 @@
                                 <span class="badge">{{ __('New') }}</span>
                             </a>
                         </li>
-                        <li><a>{{ __('Settings') }}</a></li>
+                        <li><a href="{{ route('profile.edit') }}">{{ __('Settings') }}</a></li>
                         <li>
                             <button type="submit">{{ __('Logout') }}</button>
                         </li>

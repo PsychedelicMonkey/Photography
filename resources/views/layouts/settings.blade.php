@@ -27,8 +27,8 @@
                 <li @class(['menu-active' => request()->routeIs('password.edit')])>
                     <a href="{{ route('password.edit') }}">{{ __('Update password') }}</a>
                 </li>
-                <li>
-                    <a href="#">{{ __('Close account') }}</a>
+                <li @class(['menu-active' => request()->routeIs('account.delete')])>
+                    <a href="{{ route('account.delete') }}">{{ __('Close account') }}</a>
                 </li>
             </ul>
 

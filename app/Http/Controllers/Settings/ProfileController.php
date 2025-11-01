@@ -7,10 +7,14 @@ use App\Http\Requests\Settings\ProfileUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    /**
+     * Display the user's profile form.
+     */
     public function edit(Request $request): View
     {
         return view('settings.profile', [
@@ -18,6 +22,9 @@ class ProfileController extends Controller
         ]);
     }
 
+    /**
+     * Update the user's profile information.
+     */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         /** @var User $user */
@@ -34,8 +41,25 @@ class ProfileController extends Controller
         return back()->with('status', __('Account updated'));
     }
 
-    public function destroy(Request $request)
+    /**
+     * Delete the user's account.
+     */
+    public function destroy(Request $request): RedirectResponse
     {
-        // TODO: delete user account.
+        $request->validate([
+            'password' => ['required', 'string', 'current_password'],
+        ]);
+
+        /** @var User $user */
+        $user = $request->user();
+
+        Auth::logout();
+
+        $user->delete();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }
