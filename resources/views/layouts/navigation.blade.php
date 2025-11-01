@@ -4,26 +4,37 @@
     </div>
     <div class="flex gap-2">
         <input type="text" placeholder="{{ __('Search') }}" class="input input-bordered w-24 md:w-auto" />
-        <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                <div class="w-10 rounded-full">
-                    <img
-                        alt="Tailwind CSS Navbar component"
-                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+
+        @auth
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        <img
+                            alt="Tailwind CSS Navbar component"
+                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    </div>
                 </div>
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <ul
+                        tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li>
+                            <a class="justify-between">
+                                {{ __('Profile') }}
+                                <span class="badge">{{ __('New') }}</span>
+                            </a>
+                        </li>
+                        <li><a>{{ __('Settings') }}</a></li>
+                        <li>
+                            <button type="submit">{{ __('Logout') }}</button>
+                        </li>
+                    </ul>
+                </form>
             </div>
-            <ul
-                tabindex="-1"
-                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                <li>
-                    <a class="justify-between">
-                        {{ __('Profile') }}
-                        <span class="badge">{{ __('New') }}</span>
-                    </a>
-                </li>
-                <li><a>{{ __('Settings') }}</a></li>
-                <li><a>{{ __('Logout') }}</a></li>
-            </ul>
-        </div>
+        @else
+            <a href="{{ route('login') }}" class="btn btn-primary">{{ __('Login') }}</a>
+            <a href="{{ route('register') }}" class="btn btn-neutral">{{ __('Register') }}</a>
+        @endauth
     </div>
 </div>
