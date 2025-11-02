@@ -37,6 +37,6 @@ class PasswordController extends Controller
             'password' => Hash::make($request->string('password')),
         ]);
 
-        return back()->with('status', __('Password updated'));
+        return back()->with('status', 'password-updated');
     }
 }

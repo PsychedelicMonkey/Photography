@@ -38,7 +38,7 @@ class ProfileController extends Controller
 
         $user->save();
 
-        return back()->with('status', __('Account updated'));
+        return back()->with('status', 'profile-updated');
     }
 
     /**
