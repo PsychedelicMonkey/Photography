@@ -5,15 +5,27 @@
     "scripts": {
         "build": "vite build",
         "build:ssr": "vite build && vite build --ssr",
-        "dev": "vite"
+        "dev": "vite",
+        "format": "prettier --write resources/",
+        "format:check": "prettier --check resources/",
+        "lint": "eslint . --fix"
     },
     "devDependencies": {
+        "@eslint/js": "^9.39.1",
         "@tailwindcss/vite": "^4.0.0",
         "@types/node": "^24.10.1",
         "@vitejs/plugin-vue": "^6.0.2",
+        "@vue/eslint-config-typescript": "^14.6.0",
         "concurrently": "^9.0.1",
+        "eslint": "^9.39.1",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-vue": "^10.6.0",
+        "prettier": "^3.6.2",
+        "prettier-plugin-organize-imports": "^4.3.0",
+        "prettier-plugin-tailwindcss": "^0.7.1",
         "typescript": "^5.9.3",
-        "vite": "^7.0.7"
+        "vite": "^7.0.7",
+        "vue-tsc": "^3.1.4"
     },
     "dependencies": {
         "@inertiajs/vue3": "^2.2.18",
