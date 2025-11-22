@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { usePage } from '@inertiajs/vue3';
+import { home } from '@/routes';
+import { Link, usePage } from '@inertiajs/vue3';
 
 const page = usePage();
 const name = page.props.name;
@@ -8,7 +9,7 @@ const name = page.props.name;
 <template>
     <div class="navbar bg-base-100 shadow-sm">
         <div class="flex-1">
-            <a class="btn text-xl btn-ghost">{{ name }}</a>
+            <Link :href="home()" class="btn text-xl btn-ghost">{{ name }}</Link>
         </div>
         <div class="flex gap-2">
             <input
