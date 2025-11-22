@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import InputError from '@/components/InputError.vue';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
 import AppLayout from '@/layouts/AppLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { form } from '@/routes';
+import { Form, Head } from '@inertiajs/vue3';
 </script>
 
 <template>
@@ -12,39 +16,50 @@ import { Head } from '@inertiajs/vue3';
                 <h1 class="text-3xl font-semibold">Home Page</h1>
             </div>
 
-            <fieldset
-                class="fieldset w-xs rounded-box border border-base-300 bg-base-200 p-4"
+            <Form
+                :action="form()"
+                :reset-on-success="['password']"
+                v-slot="{ errors, processing }"
             >
-                <label for="email" class="label">Email address</label>
-                <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email address"
-                    class="input"
-                />
-
-                <label for="password" class="label">Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Password"
-                    class="input"
-                />
-
-                <label class="label">
-                    <input
-                        type="checkbox"
-                        name="remember"
-                        id="remember"
-                        class="checkbox"
+                <fieldset
+                    class="fieldset w-xs rounded-box border border-base-300 bg-base-200 p-4"
+                >
+                    <label for="email" class="label">Email address</label>
+                    <Input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Email address"
                     />
-                    Remember me
-                </label>
+                    <InputError :message="errors.email" />
 
-                <button type="submit" class="btn btn-neutral">Login</button>
-            </fieldset>
+                    <label for="password" class="label">Password</label>
+                    <Input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Password"
+                    />
+                    <InputError :message="errors.password" />
+
+                    <label class="label">
+                        <Checkbox name="remember" id="remember" />
+                        Remember me
+                    </label>
+
+                    <button
+                        type="submit"
+                        class="btn btn-neutral"
+                        :disabled="processing"
+                    >
+                        <span
+                            v-if="processing"
+                            class="loading loading-bars"
+                        ></span>
+                        <span v-else>Login</span>
+                    </button>
+                </fieldset>
+            </Form>
         </div>
     </AppLayout>
 </template>
